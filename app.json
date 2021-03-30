@@ -1,0 +1,21 @@
+{
+  "name": "Start on Heroku: Python",
+  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "image": "heroku/python",
+  "repository": "https://github.com/ap00564283/lhcc_server.git",
+  "keywords": ["python", "django"],
+  "env": {
+    "SECRET_KEY": {
+      "description": "&ds9x-2k_*oit&ij=^awelpz^rc=kd6z%d@n(j+sijlhds+c5)",
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "migrations": "python manage.py makemigrations",
+        "migrate": "python manage.py migrate"
+      }
+    }
+  }
+}

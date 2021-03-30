@@ -1,0 +1,13 @@
+
+__pycache__
+.vscode
+db.sqlite3
+
+# logs/
+
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+.DS_Store

@@ -1,0 +1,481 @@
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) PRAGMA foreign_keys = OFF; args=None
+(0.000) BEGIN; args=None
+CREATE TABLE "maps_api_city" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(30) NULL); (params None)
+(0.001) CREATE TABLE "maps_api_city" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(30) NULL); args=None
+CREATE TABLE "maps_api_country" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(30) NULL UNIQUE); (params None)
+(0.000) CREATE TABLE "maps_api_country" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(30) NULL UNIQUE); args=None
+ALTER TABLE "maps_api_city" RENAME TO "maps_api_city__old"; (params ())
+(0.002) ALTER TABLE "maps_api_city" RENAME TO "maps_api_city__old"; args=()
+CREATE TABLE "maps_api_city" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(30) NULL, "country_id" integer NOT NULL REFERENCES "maps_api_country" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+(0.000) CREATE TABLE "maps_api_city" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(30) NULL, "country_id" integer NOT NULL REFERENCES "maps_api_country" ("id") DEFERRABLE INITIALLY DEFERRED); args=None
+INSERT INTO "maps_api_city" ("id", "name", "country_id") SELECT "id", "name", NULL FROM "maps_api_city__old"; (params ())
+(0.001) INSERT INTO "maps_api_city" ("id", "name", "country_id") SELECT "id", "name", NULL FROM "maps_api_city__old"; args=()
+DROP TABLE "maps_api_city__old"; (params ())
+(0.000) DROP TABLE "maps_api_city__old"; args=()
+CREATE INDEX "maps_api_city_country_id_b2de2207" ON "maps_api_city" ("country_id"); (params ())
+(0.000) CREATE INDEX "maps_api_city_country_id_b2de2207" ON "maps_api_city" ("country_id"); args=()
+(0.000) PRAGMA foreign_keys = ON; args=None
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) BEGIN; args=None
+(0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('maps_api', '0001_initial', '2020-01-18 11:24:55.714809'); args=['maps_api', '0001_initial', '2020-01-18 11:24:55.714809']
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" = 'logentry'); args=('admin', 'logentry')
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'permission'); args=('auth', 'permission')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'group'); args=('auth', 'group')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'user'); args=('auth', 'user')
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" = 'session'); args=('sessions', 'session')
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'maps_api' AND "django_content_type"."model" = 'city'); args=('maps_api', 'city')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'maps_api' AND "django_content_type"."model" = 'city'); args=('maps_api', 'city')
+(0.000) BEGIN; args=None
+(0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('maps_api', 'city'); args=['maps_api', 'city']
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'maps_api' AND "django_content_type"."model" = 'country'); args=('maps_api', 'country')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'maps_api' AND "django_content_type"."model" = 'country'); args=('maps_api', 'country')
+(0.000) BEGIN; args=None
+(0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('maps_api', 'country'); args=['maps_api', 'country']
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 7)
+(0.000) BEGIN; args=None
+(0.002) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") SELECT 'Can add City', 7, 'add_city' UNION ALL SELECT 'Can change City', 7, 'change_city' UNION ALL SELECT 'Can delete City', 7, 'delete_city' UNION ALL SELECT 'Can view City', 7, 'view_city' UNION ALL SELECT 'Can add Country', 8, 'add_country' UNION ALL SELECT 'Can change Country', 8, 'change_country' UNION ALL SELECT 'Can delete Country', 8, 'delete_country' UNION ALL SELECT 'Can view Country', 8, 'view_country'; args=('Can add City', 7, 'add_city', 'Can change City', 7, 'change_city', 'Can delete City', 7, 'delete_city', 'Can view City', 7, 'view_city', 'Can add Country', 8, 'add_country', 'Can change Country', 8, 'change_country', 'Can delete Country', 8, 'delete_country', 'Can view Country', 8, 'view_country')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'maps_api'; args=('maps_api',)
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET / HTTP/1.1" 200 16348
+"GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+"GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+"GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+"GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 16348
+"GET / HTTP/1.1" 200 16348
+"GET / HTTP/1.1" 200 16348
+"GET / HTTP/1.1" 200 16348
+"GET / HTTP/1.1" 200 16348
+"GET / HTTP/1.1" 200 16348
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET / HTTP/1.1" 200 16348
+"GET / HTTP/1.1" 200 16348
+"GET / HTTP/1.1" 200 16348
+"GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+"GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+"GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+"GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+"GET / HTTP/1.1" 200 16348
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET / HTTP/1.1" 200 1187
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 23387
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'Germany'; args=('Germany',)
+(0.000) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 6; args=(6,)
+"GET /server/drf_api/cities/Germany/ HTTP/1.1" 200 12235
+"GET /static/rest_framework/css/default.css HTTP/1.1" 200 1131
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1719
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+"GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 37608
+"GET /static/rest_framework/js/jquery-3.4.1.min.js HTTP/1.1" 200 88145
+"GET /server/drf_api/hotels/Munich/ HTTP/1.1" 200 54899
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 266
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'India'; args=('India',)
+(0.002) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 5; args=(5,)
+"GET /server/drf_api/cities/India/ HTTP/1.1" 200 4299
+"GET /server/normal_api/Mumbai/ HTTP/1.1" 200 266
+"GET /server/normal_api/Mumbai/ HTTP/1.1" 200 266
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'Germany'; args=('Germany',)
+(0.002) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 6; args=(6,)
+"GET /server/drf_api/cities/Germany/ HTTP/1.1" 200 1177
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/urls/resolvers.py", line 520, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLPattern ''>], [<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'normal_api/<str:place>/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'normal_api/<str:place><drf_format_suffix:format>'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'photos/<slug:placeId>/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'photos/<slug:placeId><drf_format_suffix:format>'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'reviews/<slug:placeId>/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'reviews/<slug:placeId><drf_format_suffix:format>'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'details/<slug:placeId>/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'details/<slug:placeId><drf_format_suffix:format>'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'drf_api/countries/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'drf_api/countries<drf_format_suffix:format>'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'drf_api/cities/<str:country>/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'drf_api/cities/<str:country><drf_format_suffix:format>'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'drf_api/hotels/<str:place>/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>, <URLPattern 'drf_api/hotels/<str:place><drf_format_suffix:format>'>]], 'path': 'server/normal_api//'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+Not Found: /server/normal_api//
+"GET /server/normal_api// HTTP/1.1" 404 4876
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 266
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 266
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 266
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'India'; args=('India',)
+(0.002) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 5; args=(5,)
+"GET /server/drf_api/cities/India/ HTTP/1.1" 200 4299
+"GET /server/normal_api/New%20Delhi/ HTTP/1.1" 200 266
+"GET /server/normal_api/New%20Delhi/ HTTP/1.1" 200 266
+(0.003) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 266
+(0.003) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 24355
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'Germany'; args=('Germany',)
+(0.001) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 6; args=(6,)
+"GET /server/drf_api/cities/Germany/ HTTP/1.1" 200 1177
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 23827
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 23627
+"GET /server/details/ChIJvSMRL_l1nkcRIQuiN5lygpA/ HTTP/1.1" 200 9190
+(0.003) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23904
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23804
+(0.000) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23899
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23839
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23789
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23639
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'Germany'; args=('Germany',)
+(0.002) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 6; args=(6,)
+"GET /server/drf_api/cities/Germany/ HTTP/1.1" 200 1177
+"GET /server/normal_api/Cologne/ HTTP/1.1" 200 23766
+"GET /server/normal_api/Cologne/ HTTP/1.1" 200 23916
+"GET /server/details/ChIJpeasZrslv0cR95l940wjYVs/ HTTP/1.1" 200 7037
+"GET /server/reviews/ChIJpeasZrslv0cR95l940wjYVs/ HTTP/1.1" 200 3308
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 24049
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23899
+(0.000) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'India'; args=('India',)
+(0.000) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 5; args=(5,)
+"GET /server/drf_api/cities/India/ HTTP/1.1" 200 4299
+"GET /server/normal_api/Pune/ HTTP/1.1" 200 24675
+"GET /server/normal_api/Pune/ HTTP/1.1" 200 24675
+"GET /server/details/ChIJq9AHmv7AwjsRK5VJS_3ltug/ HTTP/1.1" 200 8746
+"GET /server/details/ChIJSw6alYq_wjsRYIwHMVBHNJY/ HTTP/1.1" 200 7634
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23799
+(0.004) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23820
+(0.003) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'Germany'; args=('Germany',)
+(0.011) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 6; args=(6,)
+"GET /server/drf_api/cities/Germany/ HTTP/1.1" 200 1177
+"GET /server/normal_api/Berlin/ HTTP/1.1" 200 23815
+"GET /server/normal_api/Berlin/ HTTP/1.1" 200 23665
+"GET /server/details/ChIJCQNXddpRqEcRYM7pVt99ibw/ HTTP/1.1" 200 7213
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23470
+(0.004) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23917
+(0.003) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'India'; args=('India',)
+(0.001) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 5; args=(5,)
+"GET /server/drf_api/cities/India/ HTTP/1.1" 200 4299
+"GET /server/normal_api/Mumbai/ HTTP/1.1" 200 24861
+"GET /server/normal_api/Mumbai/ HTTP/1.1" 200 25011
+(0.004) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23809
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23709
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'Germany'; args=('Germany',)
+(0.001) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 6; args=(6,)
+"GET /server/drf_api/cities/Germany/ HTTP/1.1" 200 1177
+"GET /server/normal_api/Berlin/ HTTP/1.1" 200 23881
+"GET /server/normal_api/Berlin/ HTTP/1.1" 200 24031
+"GET /server/details/ChIJHQQciMZRqEcR2X4b8-vf5Bk/ HTTP/1.1" 200 7927
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23817
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23867
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23867
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'Germany'; args=('Germany',)
+(0.001) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 6; args=(6,)
+"GET /server/drf_api/cities/Germany/ HTTP/1.1" 200 1177
+"GET /server/normal_api/Frankfurt/ HTTP/1.1" 200 23880
+"GET /server/normal_api/Frankfurt/ HTTP/1.1" 200 24080
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23967
+(0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23728
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23778
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23867
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 24067
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 24017
+(0.003) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23471
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23721
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23771
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23744
+(0.002) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23744
+(0.003) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country"; args=()
+"GET /server/drf_api/countries/ HTTP/1.1" 200 37
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23701
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23701
+(0.001) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'India'; args=('India',)
+(0.002) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 5; args=(5,)
+"GET /server/drf_api/cities/India/ HTTP/1.1" 200 4299
+"GET /server/normal_api/Mumbai/ HTTP/1.1" 200 25160
+"GET /server/normal_api/Mumbai/ HTTP/1.1" 200 25010
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23601
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23817
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23867
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 24067
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23917
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23694
+(0.000) SELECT "maps_api_country"."id", "maps_api_country"."name" FROM "maps_api_country" WHERE "maps_api_country"."name" = 'India'; args=('India',)
+(0.000) SELECT "maps_api_city"."id", "maps_api_city"."name", "maps_api_city"."country_id" FROM "maps_api_city" WHERE "maps_api_city"."country_id" = 5; args=(5,)
+"GET /server/drf_api/cities/India/ HTTP/1.1" 200 4299
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23794
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23894
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23922
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 24072
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23771
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23571
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23521
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23871
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23976
+"GET /server/normal_api/Mumbai/ HTTP/1.1" 200 25160
+"GET /server/normal_api/Mumbai/ HTTP/1.1" 200 25010
+"GET /server/normal_api/Nashik/ HTTP/1.1" 200 24685
+"GET /server/normal_api/Nashik/ HTTP/1.1" 200 24735
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 24030
+"GET /server/normal_api/Nashik/ HTTP/1.1" 200 24629
+"GET /server/normal_api/Nashik/ HTTP/1.1" 200 24629
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23823
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 23655
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 23655
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23623
+"GET /server/normal_api/Berlin/ HTTP/1.1" 200 23765
+"GET /server/normal_api/Berlin/ HTTP/1.1" 200 23615
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23623
+"GET /server/normal_api/Berlin/ HTTP/1.1" 200 23715
+"GET /server/normal_api/Berlin/ HTTP/1.1" 200 23715
+"GET /server/details/ChIJCQNXddpRqEcRYM7pVt99ibw/ HTTP/1.1" 200 7213
+"GET /server/reviews/ChIJsbD00_5QqEcRdq9f1izycoQ/ HTTP/1.1" 200 4000
+"GET /server/reviews/ChIJ27GN0sRRqEcRqVOEFzeJrVE/ HTTP/1.1" 200 3655
+"GET /server/details/ChIJX-1THMlRqEcRLR_hDVVnW9s/ HTTP/1.1" 200 7855
+"GET / HTTP/1.1" 200 1187
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/urls/resolvers.py", line 520, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLPattern ''>], [<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/urls/resolvers.py", line 520, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLPattern ''>], [<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/limehome/lib/python3.6/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'maps_api.urls' from '/opt/repos/common/limehome/lhcc_server/maps_api/urls.py'> (None:None) 'server/'>
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2184
+"GET /server/details/ChIJq8OfDfx1nkcRQNPwYqwXiqE/ HTTP/1.1" 200 6854
+"GET /server/photos/ChIJq8OfDfx1nkcRQNPwYqwXiqE/ HTTP/1.1" 200 3704
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 23492
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 24039
+"GET /server/normal_api/Hamburg/ HTTP/1.1" 200 23543
+"GET /server/normal_api/Hamburg/ HTTP/1.1" 200 23693
+"GET /server/details/ChIJC1HR3jyPsUcRy0UhCcVRUBM/ HTTP/1.1" 200 6883
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 24139
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 23456
+"GET /server/normal_api/Munich/ HTTP/1.1" 200 23506
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23750
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23750
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23800
+"GET /server/normal_api/Germany/ HTTP/1.1" 200 23845
+"GET /server/normal_api/Pune/ HTTP/1.1" 200 24716
+"GET /server/normal_api/Pune/ HTTP/1.1" 200 24766
+"GET /server/details/ChIJSw6alYq_wjsRYIwHMVBHNJY/ HTTP/1.1" 200 7634
